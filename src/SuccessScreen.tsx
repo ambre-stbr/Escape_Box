@@ -1,6 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import YoutubePlayer from 'react-native-youtube-iframe';
+import { StyleSheet, Text, TouchableOpacity, View, Linking } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 interface SuccessScreenProps {
@@ -8,7 +7,17 @@ interface SuccessScreenProps {
 }
 
 const SuccessScreen: React.FC<SuccessScreenProps> = ({ onHomePress }) => {
-  const videoId = 'dQw4w9WgXcQ';
+  const videoUrl = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley';
+
+  const handleVideoButtonPress = async () => {
+    const supported = await Linking.canOpenURL(videoUrl);
+
+    if (supported) {
+      await Linking.openURL(videoUrl);
+    } else {
+      alert(`Unable to open the URL: ${videoUrl}`);
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -18,17 +27,9 @@ const SuccessScreen: React.FC<SuccessScreenProps> = ({ onHomePress }) => {
       <View style={styles.textContainer}>
         <Text style={styles.successText}>Congratulations! You've completed all enigmas!</Text>
       </View>
-      <View style={styles.videoContainer}>
-        <YoutubePlayer
-          height={300}
-          width={'100%'}
-          videoId={videoId}
-          play={true}
-          initialPlayerParams={{
-            preload: true,
-          }}
-        />
-      </View>
+      <TouchableOpacity style={styles.rewardButton} onPress={handleVideoButtonPress}>
+        <Text style={styles.rewardButtonText}>Cliquez ici pour votre récompense!</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -54,12 +55,17 @@ const styles = StyleSheet.create({
     fontSize: 27,
     color: '#ffffff',
     textAlign: 'center',
-    marginBottom: 100,
+    marginBottom: 50,
   },
-  videoContainer: {
-    width: '90%',
-    marginTop: 80,
-    marginBottom: 40,
+  rewardButton: {
+    backgroundColor: '#0066ff',
+    paddingHorizontal: 30,
+    paddingVertical: 15,
+    borderRadius: 5,
+  },
+  rewardButtonText: {
+    color: '#ffffff',
+    fontSize: 18,
   },
 });
 
