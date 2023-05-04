@@ -25,10 +25,10 @@ const SuccessScreen: React.FC<SuccessScreenProps> = ({ onHomePress }) => {
         <Icon name="home" size={32} color="#ffffff" />
       </TouchableOpacity>
       <View style={styles.textContainer}>
-        <Text style={styles.successText}>Toutes nos félicitations! Vous avez terminé toutes les énigmes !</Text>
+        <Text style={styles.successText}>Toutes nos félicitations! Vous avez terminé toutes les énigmes!</Text>
       </View>
       <TouchableOpacity style={styles.rewardButton} onPress={handleVideoButtonPress}>
-        <Text style={styles.rewardButtonText}>Cliquez ici pour votre récompense!</Text>
+        <Text style={styles.rewardButtonText}>Voici votre récompense!</Text>
       </TouchableOpacity>
     </View>
   );
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     fontSize: 27,
     color: '#ffffff',
     textAlign: 'center',
-    marginBottom: 50,
+    marginBottom: 150,
   },
   rewardButton: {
     backgroundColor: '#0066ff',
