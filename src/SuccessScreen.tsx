@@ -25,7 +25,7 @@ const SuccessScreen: React.FC<SuccessScreenProps> = ({ onHomePress }) => {
         <Icon name="home" size={32} color="#ffffff" />
       </TouchableOpacity>
       <View style={styles.textContainer}>
-        <Text style={styles.successText}>Congratulations! You've completed all enigmas!</Text>
+        <Text style={styles.successText}>Toutes nos félicitations! Vous avez terminé toutes les énigmes !</Text>
       </View>
       <TouchableOpacity style={styles.rewardButton} onPress={handleVideoButtonPress}>
         <Text style={styles.rewardButtonText}>Cliquez ici pour votre récompense!</Text>

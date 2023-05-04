@@ -25,16 +25,16 @@ const PlayScreen: React.FC<PlayScreenProps> = ({ onEnigmasCompleted, onHomePress
       <TouchableOpacity style={styles.homeIcon} onPress={onHomePress}>
         <Icon name="home" size={32} color="#ffffff" />
       </TouchableOpacity>
-      <Text style={styles.enigmaText}>Here is the enigma explanation...</Text>
+      <Text style={styles.enigmaText}>Voici l'explication de l'énigme...</Text>
       <TouchableOpacity
         style={[styles.nextButton, buttonEnabled ? styles.nextButtonEnabled : styles.nextButtonDisabled]}
         onPress={handleNextButtonPress}
         disabled={!buttonEnabled}
       >
-        <Text style={styles.nextButtonText}>Next</Text>
+        <Text style={styles.nextButtonText}>Suivant</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.simulateButton} onPress={handleEnigmaSolved}>
-        <Text style={styles.simulateButtonText}>Simulate Enigma Solved</Text>
+        <Text style={styles.simulateButtonText}>Simuler l'énigme résolue</Text>
       </TouchableOpacity>
     </View>
   );

@@ -12,9 +12,9 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ onPlayPress }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.appName}>EscapeBox</Text>
+      <Text style={styles.appName}>Escape Box</Text>
       <TouchableOpacity style={styles.playButton} onPress={handlePlayButtonPress}>
-        <Text style={styles.playButtonText}>Play</Text>
+        <Text style={styles.playButtonText}>Jouer</Text>
       </TouchableOpacity>
     </View>
   );
