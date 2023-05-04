@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 interface PlayScreenProps {
   onEnigmasCompleted: () => void;
+  onHomePress: () => void;
 }
 
-const PlayScreen: React.FC<PlayScreenProps> = ({ onEnigmasCompleted }) => {
+const PlayScreen: React.FC<PlayScreenProps> = ({ onEnigmasCompleted, onHomePress }) => {
   const [buttonEnabled, setButtonEnabled] = useState(false);
 
   const handleEnigmaSolved = () => {
@@ -20,6 +22,9 @@ const PlayScreen: React.FC<PlayScreenProps> = ({ onEnigmasCompleted }) => {
 
   return (
     <View style={styles.container}>
+      <TouchableOpacity style={styles.homeIcon} onPress={onHomePress}>
+        <Icon name="home" size={32} color="#ffffff" />
+      </TouchableOpacity>
       <Text style={styles.enigmaText}>Here is the enigma explanation...</Text>
       <TouchableOpacity
         style={[styles.nextButton, buttonEnabled ? styles.nextButtonEnabled : styles.nextButtonDisabled]}
@@ -73,6 +78,11 @@ const styles = StyleSheet.create({
   simulateButtonText: {
     fontSize: 18,
     color: '#ffffff',
+  },
+  homeIcon: {
+    position: 'absolute',
+    top: 50,
+    left: 15,
   },
 });
 

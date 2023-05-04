@@ -42,6 +42,8 @@ target 'Escape_Box' do
     # An absolute path to your application root.
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+
 
   target 'Escape_BoxTests' do
     inherit! :complete

@@ -1,12 +1,20 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import YoutubePlayer from 'react-native-youtube-iframe';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
-const SuccessScreen = () => {
+interface SuccessScreenProps {
+  onHomePress: () => void;
+}
+
+const SuccessScreen: React.FC<SuccessScreenProps> = ({ onHomePress }) => {
   const videoId = 'dQw4w9WgXcQ';
 
   return (
     <View style={styles.container}>
+      <TouchableOpacity style={styles.homeIcon} onPress={onHomePress}>
+        <Icon name="home" size={32} color="#ffffff" />
+      </TouchableOpacity>
       <View style={styles.textContainer}>
         <Text style={styles.successText}>Congratulations! You've completed all enigmas!</Text>
       </View>
@@ -31,6 +39,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#1c1c1c',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  homeIcon: {
+    position: 'absolute',
+    top: 40,
+    left: 20,
   },
   textContainer: {
     justifyContent: 'center',

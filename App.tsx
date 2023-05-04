@@ -4,20 +4,35 @@ import PlayScreen from './src/PlayScreen';
 import SuccessScreen from './src/SuccessScreen';
 
 const App = () => {
-  const [currentScreen, setCurrentScreen] = useState('Home');
+  const [screen, setScreen] = useState<'home' | 'play' | 'success'>('home');
+  const [enigmaCompleted, setEnigmaCompleted] = useState(false);
 
-  const navigateToPlayScreen = () => setCurrentScreen('Play');
-  const navigateToSuccessScreen = () => setCurrentScreen('Success');
+  const handlePlay = () => {
+    setScreen('play');
+  };
 
-  if (currentScreen === 'Home') {
-    return <HomeScreen onPlayPress={navigateToPlayScreen} />;
-  } else if (currentScreen === 'Play') {
-    return <PlayScreen onEnigmasCompleted={navigateToSuccessScreen} />;
-  } else if (currentScreen === 'Success') {
-    return <SuccessScreen />;
-  }
+  const handleEnigmasCompleted = () => {
+    setScreen('success');
+  };
 
-  return null;
+  const handleHome = () => {
+    setScreen('home');
+    setEnigmaCompleted(false);
+  };
+
+  return (
+    <>
+      {screen === 'home' && <HomeScreen onPlayPress={handlePlay} />}
+      {screen === 'play' && (
+        <PlayScreen
+          onEnigmasCompleted={handleEnigmasCompleted}
+          onHomePress={handleHome}
+        />
+      )}
+      {screen === 'success' && <SuccessScreen onHomePress={handleHome} />}
+
+    </>
+  );
 };
 
 export default App;
