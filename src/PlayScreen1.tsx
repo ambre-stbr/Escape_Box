@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-interface PlayScreenProps {
+interface PlayScreen1Props {
   onEnigmasCompleted: () => void;
   onHomePress: () => void;
 }
 
-const PlayScreen: React.FC<PlayScreenProps> = ({ onEnigmasCompleted, onHomePress }) => {
+const PlayScreen1: React.FC<PlayScreen1Props> = ({ onEnigmasCompleted, onHomePress }) => {
   const [buttonEnabled, setButtonEnabled] = useState(true);
 
   const handleEnigmaSolved = () => {
@@ -25,7 +25,7 @@ const PlayScreen: React.FC<PlayScreenProps> = ({ onEnigmasCompleted, onHomePress
       <TouchableOpacity style={styles.homeIcon} onPress={onHomePress}>
         <Icon name="home" size={32} color="#ffffff" />
       </TouchableOpacity>
-      <Text style={styles.enigmaText}>Approche toi et regarde la boîte dans les yeux. Le premier qui cligne des yeux a perdu !</Text>
+      <Text style={styles.enigmaText}>N E S O</Text>
       <TouchableOpacity
         style={[styles.nextButton, buttonEnabled ? styles.nextButtonEnabled : styles.nextButtonDisabled]}
         onPress={handleNextButtonPress}
@@ -46,8 +46,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   enigmaText: {
-    marginLeft: 20,
-    marginRight: 20,
     fontSize: 22,
     color: '#ffffff',
     textAlign: 'center',
@@ -86,4 +84,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default PlayScreen;
+export default PlayScreen1;
