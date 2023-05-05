@@ -43,8 +43,8 @@ const styles = StyleSheet.create({
   },
   homeIcon: {
     position: 'absolute',
-    top: 40,
-    left: 20,
+    top: 50,
+    left: 15,
   },
   textContainer: {
     justifyContent: 'center',
